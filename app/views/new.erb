@@ -1,0 +1,33 @@
+<div>
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="container">
+  <h1>Create an Event!</h1>
+  
+  <form action="/events/create" method="post">
+    <input type="checkbox" name="numbers[]" value="1">one
+    <input type="checkbox" name="numbers[]" value="2">two
+    <input type="checkbox" name="numbers[]" value="3">three
+    <input type="checkbox" name="numbers[]" value="4">four
+    <input type="checkbox" name="numbers[]" value="5">five
+    <p>Enter your name!</p>
+    <br>
+    <input type="text" name="event[organizer_name]" value="<%=@event.organizer_name%>">
+    <br>
+    <p>Enter your email.</p>
+    <input type="text" name="event[organizer_email]" value="<%=@event.organizer_email%>">
+    <br> 
+    <p>Enter the name of your event.</p>
+    <input type="text" name="event[title]" value="<%=@event.title%>">
+    <br> 
+    <p>Enter the date.</p>
+    <input type="text" name="event[human_date]" value="<%= @event.human_date %>" >
+    <br>
+    <input type="submit" value="Create Event">
+  </form>
+
